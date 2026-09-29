@@ -23,7 +23,7 @@ export function SiteHeader() {
   const { audience, setAudience, language, setLanguage } = useSite();
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = useRouterState({ select: s => s.location.pathname });
-  const t = translations[language] ?? translations.RU ?? { trainers: "Для тренеров", clients: "Для спортсменов", catalog: "Каталог", blog: "Блог", join: "Ранний доступ" };
+  const t = translations[language] ?? translations["RU"] ?? { trainers: "Для тренеров", clients: "Для спортсменов", catalog: "Каталог", blog: "Блог", join: "Ранний доступ" };
   return <header className="relative z-30 border-b border-border bg-background">
     <div className="container-site flex h-20 items-center justify-between gap-4">
       <Link to="/" className="font-display text-[29px] font-extrabold leading-none tracking-normal" aria-label="Forma — на главную">forma<span className="text-primary">.</span></Link>
