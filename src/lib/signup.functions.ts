@@ -12,7 +12,7 @@ const signupSchema = z.object({
 });
 
 export const joinWaitlist = createServerFn({ method: 'POST' })
-  .inputValidator((data) => signupSchema.parse(data))
+  .validator((data) => signupSchema.parse(data))
   .handler(async ({ data }) => {
     const { supabaseAdmin } = await import('@/integrations/supabase/client.server');
     const { error } = await supabaseAdmin.from('early_access_signups').insert({
