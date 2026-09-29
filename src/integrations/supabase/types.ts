@@ -14,7 +14,42 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      early_access_signups: {
+        Row: {
+          audience: string
+          consent_at: string
+          created_at: string
+          email: string
+          id: string
+          instagram_link: string | null
+          phone: string | null
+          social_link: string | null
+          updated_at: string
+        }
+        Insert: {
+          audience: string
+          consent_at: string
+          created_at?: string
+          email: string
+          id?: string
+          instagram_link?: string | null
+          phone?: string | null
+          social_link?: string | null
+          updated_at?: string
+        }
+        Update: {
+          audience?: string
+          consent_at?: string
+          created_at?: string
+          email?: string
+          id?: string
+          instagram_link?: string | null
+          phone?: string | null
+          social_link?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
