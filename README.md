@@ -1,14 +1,36 @@
-# Welcome to your Lovable project
+# Train & Thrive
+
+Build for me a site in this palette of color: #FF5A36; #FFF4EC; #1E1E1E; #E8D5C4
+Вот структура лендинга с двумя аудиториями, тренерами и клиентами:
+
+1. Шапка. Логотип, переключатель языка RO / RU / EN / IT / ESP (dropdown), ссылки «Для тренеров», «Каталог», «Блог».
+
+2. Hero. Один заголовок про результат, а не про технологию. Например: «Продавай свои программы клиентам в любой стране. Оплата и доступ — автоматически». Две кнопки: основная «Я тренер — хочу ранний доступ», вторичная «Найти тренера»
+3. После 15 секунд нахождения на сайте, появляется красивый поп ап где спрашивается Вы тренер или клиент\спорстмен ... . Человек выбирает кто он, и взависимости от ответа, у него на сайте появляется fake door кнопка с Хочу продавать свои программы - доступ на раний (если он выбрал тренера), а если выбрал что он ищет тренера - тогда Найти Подходящую Программу тренировок у самых лучших тренеров бесплатно бла бла бла
+5. Проблема. Три коротких пункта, которые тренер узнает в себе (если он выбрал в попапе что он тренер, а в меню он может перейти и на страницу как клиент, типо вкладки Для Подопечных или Для Спортсменов): переводы на карту вручную, курсы в Google Drive, клиент из Италии не может заплатить.
+6 Как это работает. Три шага: загрузи программу → поставь цену → поделись ссылкой в Instagram.
+
+7 Для клиентов. Превью каталога, 3–6 карточек про полезные статьи (как не стесняться в спортзале, как правильно готовиться к тренировке, победитель чемпионата по бодибилдингу 2026...), и кнопка «Смотреть все». Это вход в SEO-страницы.
+
+8. Условия. «Бесплатно, комиссия только с продаж. Растем вместе бла бла бла». Без точных цифр, пока их не проверила.
+
+9. Ранние тренеры. Когда будут первые 2–3, их фото и цитаты. До этого блок скрыт.
+
+10. FAQ. Как приходят деньги, из каких стран можно платить, можно ли удалить аккаунт, что с копированием видео (их будет защищать водянной знак).
+
+11. Форма ранней регистрации. Email, выбор «я тренер / я ищу тренера»-> заполняют свой номер тф, и\или соцсеть и\или почту, для тренеров поле «ссылка на Instagram». По этой форме ты и считаешь спрос с каждой стороны.
+
+12. Подвал. Контакты, политика конфиденциальности (GDPR обязательна с первого дня, раз собираешь email), соцсети.
 
 This project was built with [Lovable](https://lovable.dev).
 
 ## Build with Lovable
 
-Open your project in the [Lovable editor](https://lovable.dev) and keep building.
+Continue developing this project in the [Lovable editor](https://lovable.dev/projects/4f74d543-99ad-5abc-9c8e-f7d022131954).
 
 - **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
-- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
+- **Stay in sync**: every change made in Lovable is committed straight to this repository.
+- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
 
 ## Development
 
@@ -20,10 +42,3 @@ cd <repository-name>
 npm i
 npm run dev
 ```
-
-## Built with
-
-- TanStack Start
-- TypeScript
-- React
-- Tailwind CSS
