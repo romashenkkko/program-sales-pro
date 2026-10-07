@@ -1,1 +1,0 @@
-CREATE POLICY "Service role manages early access signups" ON public.early_access_signups FOR ALL TO service_role USING (true) WITH CHECK (true);

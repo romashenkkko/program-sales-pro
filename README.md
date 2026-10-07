@@ -22,23 +22,22 @@ Build for me a site in this palette of color: #FF5A36; #FFF4EC; #1E1E1E; #E8D5C4
 
 12. Подвал. Контакты, политика конфиденциальности (GDPR обязательна с первого дня, раз собираешь email), соцсети.
 
-This project was built with [Lovable](https://lovable.dev).
-
-## Build with Lovable
-
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/4f74d543-99ad-5abc-9c8e-f7d022131954).
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
-
 ## Development
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+You need Node.js 22 or newer and npm.
 
 ```sh
 git clone <this-repository-url>
 cd <repository-name>
-npm i
+npm install
+npm run db:init
 npm run dev
+```
+
+The local development server runs at `http://localhost:5173`. Contact form submissions are stored in `data/forma.sqlite`, which is intentionally excluded from Git.
+
+Create a production build with:
+
+```sh
+npm run build
 ```
