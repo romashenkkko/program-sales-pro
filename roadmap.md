@@ -2,3 +2,8 @@
 - [x] Сохранение заявок обеих аудиторий с согласием на обработку данных.
 - [x] Добавить отдельные страницы каталога, статей и конфиденциальности.
 - [x] Проверить форму, переключение аудитории и мобильную версию.
+- [ ] Rename the site to PULS and update brand copy for puls.fit.
+- [ ] Replace the main page with a Moldova and Romania endurance-event listing.
+- [ ] Add one complete event detail page with distances, past editions, and coaches.
+- [ ] Add one complete trainer reference profile with tags, photos, and social links.
+- [ ] Verify desktop and mobile event discovery flows.

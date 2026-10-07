@@ -1,2 +1,3 @@
 - Early-access leads are stored in a local SQLite database through a validated server function; the database file is never exposed to the client.
 - Shareable catalogue, blog, articles, and privacy content use separate TanStack routes, because they need distinct URLs and metadata.
+- Event and trainer records live in shared typed content modules and render through dynamic routes, so new records can be added without duplicating page structure.
