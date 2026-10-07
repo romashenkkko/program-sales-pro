@@ -16,6 +16,8 @@ import { Route as FaqRouteImport } from './routes/faq'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
+import { Route as EventsSlugRouteImport } from './routes/events.$slug'
+import { Route as TrainersSlugRouteImport } from './routes/trainers.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -52,6 +54,16 @@ const BlogSlugRoute = BlogSlugRouteImport.update({
   path: '/$slug',
   getParentRoute: () => BlogRoute,
 } as any)
+const EventsSlugRoute = EventsSlugRouteImport.update({
+  id: '/events/$slug',
+  path: '/events/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TrainersSlugRoute = TrainersSlugRouteImport.update({
+  id: '/trainers/$slug',
+  path: '/trainers/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -60,6 +72,8 @@ export interface FileRoutesByFullPath {
   '/faq': typeof FaqRoute
   '/privacy': typeof PrivacyRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/events/$slug': typeof EventsSlugRoute
+  '/trainers/$slug': typeof TrainersSlugRoute
   '/blog/': typeof BlogIndexRoute
 }
 export interface FileRoutesByTo {
@@ -68,6 +82,8 @@ export interface FileRoutesByTo {
   '/faq': typeof FaqRoute
   '/privacy': typeof PrivacyRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/events/$slug': typeof EventsSlugRoute
+  '/trainers/$slug': typeof TrainersSlugRoute
   '/blog': typeof BlogIndexRoute
 }
 export interface FileRoutesById {
@@ -78,14 +94,32 @@ export interface FileRoutesById {
   '/faq': typeof FaqRoute
   '/privacy': typeof PrivacyRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/events/$slug': typeof EventsSlugRoute
+  '/trainers/$slug': typeof TrainersSlugRoute
   '/blog/': typeof BlogIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/blog' | '/catalog' | '/faq' | '/privacy' | '/blog/$slug' | '/blog/'
+    | '/'
+    | '/blog'
+    | '/catalog'
+    | '/faq'
+    | '/privacy'
+    | '/blog/$slug'
+    | '/events/$slug'
+    | '/trainers/$slug'
+    | '/blog/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/catalog' | '/faq' | '/privacy' | '/blog/$slug' | '/blog'
+  to:
+    | '/'
+    | '/catalog'
+    | '/faq'
+    | '/privacy'
+    | '/blog/$slug'
+    | '/events/$slug'
+    | '/trainers/$slug'
+    | '/blog'
   id:
     | '__root__'
     | '/'
@@ -94,6 +128,8 @@ export interface FileRouteTypes {
     | '/faq'
     | '/privacy'
     | '/blog/$slug'
+    | '/events/$slug'
+    | '/trainers/$slug'
     | '/blog/'
   fileRoutesById: FileRoutesById
 }
@@ -103,6 +139,8 @@ export interface RootRouteChildren {
   CatalogRoute: typeof CatalogRoute
   FaqRoute: typeof FaqRoute
   PrivacyRoute: typeof PrivacyRoute
+  EventsSlugRoute: typeof EventsSlugRoute
+  TrainersSlugRoute: typeof TrainersSlugRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -156,6 +194,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogSlugRouteImport
       parentRoute: typeof BlogRoute
     }
+    '/events/$slug': {
+      id: '/events/$slug'
+      path: '/events/$slug'
+      fullPath: '/events/$slug'
+      preLoaderRoute: typeof EventsSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/trainers/$slug': {
+      id: '/trainers/$slug'
+      path: '/trainers/$slug'
+      fullPath: '/trainers/$slug'
+      preLoaderRoute: typeof TrainersSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -177,6 +229,8 @@ const rootRouteChildren: RootRouteChildren = {
   CatalogRoute: CatalogRoute,
   FaqRoute: FaqRoute,
   PrivacyRoute: PrivacyRoute,
+  EventsSlugRoute: EventsSlugRoute,
+  TrainersSlugRoute: TrainersSlugRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
