@@ -16,7 +16,7 @@ let database: DatabaseSync | undefined;
 function getDatabase() {
   if (database) return database;
 
-  const databasePath = resolve(process.env.FORMA_SQLITE_PATH || 'data/forma.sqlite');
+  const databasePath = resolve(process.env['FORMA_SQLITE_PATH'] || 'data/forma.sqlite');
   mkdirSync(dirname(databasePath), { recursive: true });
   database = new DatabaseSync(databasePath);
   database.exec(`
