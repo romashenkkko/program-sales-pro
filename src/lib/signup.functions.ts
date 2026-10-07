@@ -14,16 +14,15 @@ const signupSchema = z.object({
 export const joinWaitlist = createServerFn({ method: 'POST' })
   .validator((data) => signupSchema.parse(data))
   .handler(async ({ data }) => {
-    const { supabaseAdmin } = await import('@/integrations/supabase/client.server');
-    const { error } = await supabaseAdmin.from('early_access_signups').insert({
-      audience: data.audience,
-      email: data.email.toLowerCase(),
-      phone: data.phone || null,
-      social_link: data.socialLink || null,
-      instagram_link: data.audience === 'trainer' ? data.instagramLink || null : null,
-      consent_at: new Date().toISOString(),
-    });
-    if (error?.code === '23505') return { status: 'exists' as const };
-    if (error) throw new Error('Не удалось сохранить заявку. Попробуйте позже.');
-    return { status: 'success' as const };
+    const { insertWaitlistSignup } = await import('@/integrations/sqlite/client.server');
+    return {
+      status: insertWaitlistSignup({
+        audience: data.audience,
+        email: data.email.toLowerCase(),
+        phone: data.phone || null,
+        socialLink: data.socialLink || null,
+        instagramLink: data.audience === 'trainer' ? data.instagramLink || null : null,
+        consentAt: new Date().toISOString(),
+      }),
+    };
   });

@@ -1,6 +1,7 @@
-import { createFileRoute, Link } from '@tanstack/react-router';
-import { ArrowUpRight } from 'lucide-react';
-import { SiteLayout } from '@/components/site';
-import { articles } from '@/lib/content';
-export const Route = createFileRoute('/blog')({ head: () => ({ meta: [{ title: 'Блог о тренировках — Forma' }, { name: 'description', content: 'Полезные статьи о тренировках, подготовке и уверенности в спортзале от Forma.' }, { property: 'og:title', content: 'Блог о тренировках — Forma' }, { property: 'og:description', content: 'Полезные статьи о тренировках, подготовке и уверенности в спортзале от Forma.' }, { property: 'og:type', content: 'website' }, { name: 'twitter:card', content: 'summary_large_image' }] }), component: Blog });
-function Blog() { return <SiteLayout><main className="container-site section-space"><p className="mb-5 text-xs font-bold uppercase tracking-[.18em] text-primary">ЖУРНАЛ FORMA</p><h1 className="font-display text-5xl font-extrabold md:text-7xl">Больше, чем тренировки<span className="text-primary">.</span></h1><p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">Небольшие шаги, полезные привычки и новые взгляды на движение. Читайте в своём ритме.</p><div className="mt-16 grid gap-8 md:grid-cols-3">{articles.map(a => <Link key={a.slug} to="/blog/$slug" params={{slug:a.slug}} className="group"><div className="aspect-[4/3] overflow-hidden bg-secondary"><img src={a.image} alt={a.alt} width={800} height={1008} loading="lazy" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" /></div><div className="mt-5 flex justify-between text-[11px] font-bold uppercase tracking-[.14em] text-primary"><span>{a.category}</span><span className="text-muted-foreground">{a.time}</span></div><h2 className="mt-3 font-display text-2xl font-bold leading-snug group-hover:text-primary">{a.title}</h2><p className="mt-3 text-sm leading-relaxed text-muted-foreground">{a.excerpt}</p><span className="mt-5 inline-flex items-center gap-2 text-sm font-bold">Читать <ArrowUpRight className="size-4" /></span></Link>)}</div></main></SiteLayout>; }
+import { Outlet, createFileRoute } from '@tanstack/react-router';
+
+export const Route = createFileRoute('/blog')({ component: BlogLayout });
+
+function BlogLayout() {
+  return <Outlet />;
+}
